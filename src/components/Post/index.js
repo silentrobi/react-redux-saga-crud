@@ -26,11 +26,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Post = (props) => {
-    const { post, handleDelete } = props;
-
+    const { post, handleDelete, handleOpen } = props;
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
-
     return (
         <Card className={classes.root}>
             <CardContent>
@@ -42,7 +39,7 @@ const Post = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Edit</Button>
+                <Button onClick={() => handleOpen(post)} size="small">Edit</Button>
                 {" "}
                 <Button onClick={() => handleDelete(post.id)} size="small">Delete</Button>
             </CardActions>
@@ -50,4 +47,4 @@ const Post = (props) => {
     )
 }
 
-export default Post
+export default Post;

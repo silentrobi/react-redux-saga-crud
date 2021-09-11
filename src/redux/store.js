@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import rootReducer from "./reducers/index";
 
-import { getPostsSaga, addPostSaga, deletePostSaga } from "./sagas";
+import { getPostsSaga, addPostSaga, deletePostSaga, updatePostSaga } from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,4 +18,5 @@ export const store = createStore(rootReducer, middleware);
 
 sagaMiddleware.run(getPostsSaga);
 sagaMiddleware.run(addPostSaga);
+sagaMiddleware.run(updatePostSaga);
 sagaMiddleware.run(deletePostSaga);
