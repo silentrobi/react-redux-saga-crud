@@ -6,9 +6,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 400,
+        width: 400,
+        margin: theme.spacing(2, 0)
     },
     bullet: {
         display: 'inline-block',
@@ -16,15 +17,16 @@ const useStyles = makeStyles({
         transform: 'scale(0.8)',
     },
     title: {
-        fontSize: 14,
+        fontSize: 18,
+        fontWeight: 'bold'
     },
-    pos: {
-        marginBottom: 12,
+    content: {
+        fontSize: 16,
     },
-});
+}));
 
 const Post = (props) => {
-    const { post } = props;
+    const { post, handleDelete } = props;
 
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
@@ -32,14 +34,17 @@ const Post = (props) => {
     return (
         <Card className={classes.root}>
             <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                <Typography className={classes.title} color="primary" gutterBottom>
+                    {post.id}
+                </Typography>
+                <Typography className={classes.content} color="textSecondary" gutterBottom>
                     {post.text}
                 </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small">Edit</Button>
                 {" "}
-                <Button size="small">Delete</Button>
+                <Button onClick={() => handleDelete(post.id)} size="small">Delete</Button>
             </CardActions>
         </Card>
     )

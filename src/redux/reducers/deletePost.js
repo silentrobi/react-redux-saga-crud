@@ -6,7 +6,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case actionType.DELETE_POST: {
+        case actionType.DELETED_POST: {
             return {
                 ...state,
                 post: action.payload

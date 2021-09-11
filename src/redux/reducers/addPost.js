@@ -5,7 +5,7 @@ const initialState = {
 };
 export default function (state = initialState, action) {
     switch (action.type) {
-        case actionType.ADD_POST: {
+        case actionType.ADDED_POST: {
             return {
                 ...state,
                 post: action.payload
