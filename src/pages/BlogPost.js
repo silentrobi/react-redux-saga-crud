@@ -83,6 +83,8 @@ const BlogPost = (props) => {
             actions.getPosts();
         }
     }, [addedPost, updatedPost, deletedPost])
+
+    
     return (
         <Grid
             container
